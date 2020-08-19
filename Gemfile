@@ -31,6 +31,8 @@ gem 'jquery-rails'
 
 gem 'font-awesome-sass', '~> 5.13.0'
 
+gem 'devise'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
