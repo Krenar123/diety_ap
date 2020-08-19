@@ -57,6 +57,19 @@ a {
     margin-bottom: 2%;
 }
 
+.card.article {
+    
+    border: 1px solid rgb(206, 203, 203);
+    &:hover {
+        color: #333;
+    }
+    .card-header {
+        background-color: rgb(3, 24, 65);;
+        color: white;
+        border-bottom: 1px solid rgb(206, 203, 203);
+    }
+}
+
 footer {
     color: white;
     a {

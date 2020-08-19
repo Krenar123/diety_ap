@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
+    skip_before_action :authenticate_user!, only: [:index, :show] 
     before_action :find_article, except: [:index, :new, :create]
-    
+    before_action :correct_user, only: [:edit, :update, :destroy]
+
     def index
         @articles = Article.all
     end
@@ -14,7 +16,8 @@ class ArticlesController < ApplicationController
 
     def create 
         @article = Article.create(article_params)
-
+        @article.user = current_user
+        
         if @article.save
             redirect_to articles_path
         else
@@ -50,5 +53,12 @@ class ArticlesController < ApplicationController
 
     def find_article
         @article = Article.find(params[:id])
+    end
+
+    def correct_user
+        unless current_user == @article.user
+            flash[:danger] = 'You dont have permission!'
+            redirect_to @article
+        end
     end
 end

@@ -1,0 +1,28 @@
+<div class="container mt-5 mb-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <h2><%= title %> article</h2>
+
+      <%= form_with model: article, local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :title %><br />
+          <%= f.text_field :title, class: 'form-control' %>
+          <small id="emailHelp" class="form-text text-muted">Write the title of your article.</small>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :body %><br />
+          <%= f.text_area :body, class: 'form-control' %>
+          <small id="emailHelp" class="form-text text-muted">Write the body of your article.</small>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "#{title} Article", class: "btn btn-primary" %>
+            <button class="btn btn-light"> 
+                <%= link_to 'Cancel', articles_path %>
+            </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

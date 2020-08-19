@@ -1,0 +1,27 @@
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center article">
+                <div class="card-header">
+                    <h4><%= full_name(article.user) %> </h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><%= article.title %></h5>
+                    <p class="card-text"> <%= article.body %> </p>
+                    <% if local_assigns[:index] %>
+                        <%= link_to 'See the full post', article_path(article), class:"btn btn-primary" %>
+                    <% else %>
+                        <% if current_user == article.user %>
+                            <%= link_to 'Delete article', article_path(article), method: :delete, data: {confirm: 'Are u sure?'}, class:"btn btn-danger" %>
+                            <%= link_to 'Edit article', edit_article_path(article) , class:"btn btn-primary" %>
+                        <% end %>
+                        <%= link_to 'Go back to articles', articles_path , class:"btn btn-light" %>
+                    <% end %>
+                </div>
+                <div class="card-footer text-muted">
+                    <%= time_ago_in_words(article.created_at) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
