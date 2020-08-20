@@ -1,18 +1,16 @@
 class CommentsController < ApplicationController
-    skip_before_action :authenticate_user!, only: :index
     before_action :find_comment, only: [:edit, :update, :destroy]
-    
-    def index
-        @article = Article.find(params[:article_id])
-        @comment = @article.comments
-    end
+    before_action :correct_user, except: [:new, :create, :destroy]
 
     def new
-        @comment = Comment.new
+        @article = Article.find(params[:article_id])
+        @comment = @article.comments.build
     end
 
     def create
-        @comment = Comment.create(comment_params)
+        @article = Article.find(params[:article_id])
+        @comment = @article.comments.create(comment_params)
+        @comment.user = current_user
 
         if @comment.save
             redirect_to article_path(@comment.article)
@@ -23,6 +21,7 @@ class CommentsController < ApplicationController
     end
 
     def edit
+        @article = @comment.article
     end
 
     def update
@@ -35,7 +34,14 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @comment.destroy
+        if current_user == @comment.user || current_user == @comment.article.user
+            @comment.destroy
+
+            redirect_to @comment.article
+        else
+            flash[:danger] = 'You dont have permission!'
+            render @comment.article
+        end
     end
 
     private
@@ -46,5 +52,12 @@ class CommentsController < ApplicationController
 
     def find_comment
         @comment = Comment.find(params[:id])
+    end
+
+    def correct_user
+        unless current_user == @comment.user
+            flash[:danger] = 'You dont have permission!'
+            redirect_to @comment.article
+        end
     end
 end

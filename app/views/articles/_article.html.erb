@@ -16,11 +16,18 @@
                             <%= link_to 'Edit article', edit_article_path(article) , class:"btn btn-primary" %>
                         <% end %>
                         <%= link_to 'Go back to articles', articles_path , class:"btn btn-light" %>
+                        <%= link_to 'Comment', new_article_comment_path(article) , class:"btn btn-light" %>
                     <% end %>
                 </div>
                 <div class="card-footer text-muted">
                     <%= time_ago_in_words(article.created_at) %>
                 </div>
+            </div>
+            <div class="card pl-3 pt-1 article shadow">
+                <% if !local_assigns[:index] %>
+                    <h5>Comments</h5>
+                    <%= render partial: 'comments/comment', collection: article.comments%>
+                <% end %>
             </div>
         </div>
     </div>

@@ -1,0 +1,22 @@
+<div class="container mt-5 mb-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <h2><%= title %> comment</h2>
+
+      <%= form_with model: [article, comment], local: true do |f| %>
+        <div class="form-group">
+          <%= f.label :body %><br />
+          <%= f.text_area :body, class: 'form-control' %>
+          <small id="emailHelp" class="form-text text-muted"><%= title %> the body of your comment.</small>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "#{title} Comment", class: "btn btn-primary" %>
+            <button class="btn btn-light"> 
+                <%= link_to 'Cancel', article_path(comment.article) %>
+            </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
