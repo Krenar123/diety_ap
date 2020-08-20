@@ -6,7 +6,7 @@
                     <h4><%= full_name(article.user) %> </h4>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><%= article.title %></h5>
+                    <h2 class="card-title"> <strong><%= article.title %></strong></h2>
                     <p class="card-text"> <%= article.body %> </p>
                     <% if local_assigns[:index] %>
                         <%= link_to 'See the full post', article_path(article), class:"btn btn-primary" %>

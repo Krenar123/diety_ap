@@ -1,7 +1,19 @@
 <div class="media">
     <div class="media-body">
         <br>
-        <h5 class="mt-0"><%= full_name(comment.user) %>: <span style="color:black;"> <%= comment.body %> </span> <span style="margin-left:35%;"> <%= link_to 'edit', edit_article_comment_path(comment.article, comment) %> <%= link_to 'delete', article_comment_path(comment.article, comment), method: :delete, data: {confirm: 'Are u sure?'} %> </span> </h5>
-        <p> <small> <%= time_ago_in_words(comment.created_at) %> </small> </p>
+        <h5 class="mt-0"><%= full_name(comment.user) %>: <span style="color:black;"> <%= comment.body %> </span> </h5>
+        <p> 
+            <small> 
+                <%= time_ago_in_words(comment.created_at) %>
+                <span style="margin-left:60%;"> 
+                    <% if current_user == comment.user %>
+                        <%= link_to 'edit', edit_article_comment_path(comment.article, comment) %>
+                    <% end %>
+                    <% if current_user == comment.user || current_user == comment.article.user %>
+                        <%= link_to 'delete', article_comment_path(comment.article, comment), method: :delete, data: {confirm: 'Are u sure?'} %>
+                    <% end %>
+                </span>
+            </small>
+        </p>
     </div>
 </div>
