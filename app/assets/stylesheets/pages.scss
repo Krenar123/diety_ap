@@ -58,15 +58,12 @@ a {
 }
 
 .card.article {
-    
-    border: 1px solid rgb(206, 203, 203);
+    border: 1px solid rgb(245, 243, 243);
     &:hover {
         color: #333;
     }
     .card-header {
-        background-color: rgb(3, 24, 65);;
-        color: white;
-        border-bottom: 1px solid rgb(206, 203, 203);
+        border-bottom: 3px solid rgb(241, 240, 240);
     }
 }
 
