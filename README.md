@@ -1,4 +1,4 @@
-# Pricing policy app
+# DietyAp
 
 ## Synopsis
 
