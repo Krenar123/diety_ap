@@ -4,10 +4,11 @@ class WebhooksController < ApplicationController
     def getrequest
         # I should save them to db maybe
         # all params[:]
-        if params[:request_id].present?
-            @req = params[:request_id]
-        end
+       
+        api = TestApi.new(request_id: params[:request_id],name: params[:name], email_address: params[:email_address])
 
-        render json: {request_id: @req, name: params[:name]}
+        if api.save
+            render json: {request_id: params[:request_id],name: params[:name], email_address: params[:email_address]}
+        end
     end
 end
