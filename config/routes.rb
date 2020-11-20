@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments, except: [:show, :index] 
   end
 
+  post '/get_request_rp', to: 'webhooks#getrequest'
   get '/home', to: 'pages#index'
   get '/contact', to: 'pages#contact'
-  post '/get_request_rp', to: 'webhooks#getrequest'
 end
