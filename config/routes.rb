@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   get '/home', to: 'pages#index'
   get '/contact', to: 'pages#contact'
+  post '/get_request_rp', to: 'webhooks#getrequest'
 end
