@@ -11,4 +11,8 @@ class WebhooksController < ApplicationController
             render json: {request_id: params[:request_id],name: params[:name], email_address: params[:email_address]}
         end
     end
+
+    def getallapis
+        @apis = TestApi.all
+    end
 end

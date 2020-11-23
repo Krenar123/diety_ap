@@ -1,0 +1,7 @@
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-center">
+    <% @apis.each do |api| %>
+        <p> <%= api.request_id %> <%= api.name %> <%= api.email_address %> </p>
+    <% end %>
+    </div>
+</div>

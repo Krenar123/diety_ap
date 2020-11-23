@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post '/get_request_rp', to: 'webhooks#getrequest'
   get '/home', to: 'pages#index'
   get '/contact', to: 'pages#contact'
+  get '/all_requests', to: 'webhooks#getallapis'
 end
