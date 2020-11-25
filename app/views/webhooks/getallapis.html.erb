@@ -1,7 +1,23 @@
 <div class="container mt-5 mb-5">
+    <h4>Last one you added is on top!</h4>
+    <br />
     <div class="row d-flex justify-content-center">
-    <% @apis.each do |api| %>
-        <p> r_id: <%= api.request_id %>  fullname: <%= api.name %> email: <%= api.email_address %> pdf_url: <a tager="_blank" href="<%= api.pdf_url %>"><%= api.pdf_url %></a></p>
-    <% end %>
+    <table>
+        <tr>
+            <th>Request ID</th>
+            <th>Fullname</th>
+            <th>Email</th>
+            <th>PDF Url</th>
+        </tr>
+        
+            <% @apis.each do |api| %>
+            <tr>
+                <td> <%= api.request_id %> </td>
+                <td> <%= api.name %> </td>
+                <td> <%= api.email_address %> </td>
+                <td> <a tager="_blank" href="<%= api.pdf_url %>"><%= api.pdf_url %></a></td>
+            </tr>
+            <% end %>
+    </table>
     </div>
 </div>

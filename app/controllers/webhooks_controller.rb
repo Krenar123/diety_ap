@@ -13,6 +13,6 @@ class WebhooksController < ApplicationController
     end
 
     def getallapis
-        @apis = TestApi.all
+        @apis = TestApi.all.order("created_at DESC")
     end
 end
