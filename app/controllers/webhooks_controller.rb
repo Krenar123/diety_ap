@@ -5,10 +5,10 @@ class WebhooksController < ApplicationController
         # I should save them to db maybe
         # all params[:]
        
-        api = TestApi.new(request_id: params[:request_id],name: params[:name], email_address: params[:email_address])
+        api = TestApi.new(request_id: params[:request_id],name: params[:name], email_address: params[:email_address], pdf_url: parmas[:pdf_url])
 
         if api.save
-            render json: {request_id: params[:request_id],name: params[:name], email_address: params[:email_address]}
+            render json: {request_id: params[:request_id],name: params[:name], email_address: params[:email_address], pdf_url: parmas[:pdf_url]}
         end
     end
 
