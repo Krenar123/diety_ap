@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/get_status_rp', to: 'webhooks#getstatus'
   get '/home', to: 'pages#index'
   get '/contact', to: 'pages#contact'
+  post '/contactsendform', to: 'pages#contact_send_form'
   get '/all_requests', to: 'webhooks#getallapis'
   get '/all_statuses', to: 'webhooks#getallstatuses'
 end

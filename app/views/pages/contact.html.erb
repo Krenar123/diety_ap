@@ -1,17 +1,18 @@
 <div class="image__part bg-light">
     <div class="h-100 container-fluid">
-        <form class="w-50 needs-validation" novalidate>
+
+        <%= form_with model: @user, url: '/contactsendform', class: "w-50 needs-validation" do |user_form| %>
         <div class="form-row d-flex">
             <div class="col-md-6 mr-2 mb-3">
-            <label for="validationCustom01">Full Name</label>
-            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+            <label for="validationCustom01">First Name</label>
+            <%= user_form.text_field :first_name, class: 'form-control', id: 'validationCustom01', placeholder: 'Your firstname...' %>
             <div class="valid-feedback">
                 Looks good!
             </div>
             </div>
             <div class="col-md-6 mb-3">
-            <label for="validationCustom02">Email</label>
-            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+            <label for="validationCustom02">Last Name</label>
+            <%= user_form.text_field :last_name, class: 'form-control', id: 'validationCustom02', placeholder: 'Your lastname...' %>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -20,7 +21,7 @@
         <div class="form-row">
             <div class="col mb-3">
                 <label for="validationCustom03">Message</label>
-                <input type="text-area" class="form-control" id="validationCustom03" required>
+                <%= user_form.text_area :message, class: 'form-control', id: 'validationCustom03', placeholder: 'Message...' %>
                 <div class="invalid-feedback">
                     Please provide a valid message.
                 </div>
@@ -28,14 +29,14 @@
             <div class="d-flex">
                 <div class="col-md-6 mr-2 mb-3">
                     <label for="validationCustom04">State</label>
-                    <input type="text" class="w-100  form-control" id="validationCustom04" required>
+                    <%= user_form.text_field :state, class: 'w-100  form-control', id: 'validationCustom04', placeholder: 'State' %>
                     <div class="invalid-feedback">
                         Please select a valid state.
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationCustom05">Zip</label>
-                    <input type="text" class="form-control" id="validationCustom05" required>
+                    <%= user_form.text_field :zip, class: 'form-control', id: 'validationCustom05', placeholder: 'Zip' %>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
@@ -54,7 +55,7 @@
             </div>
         </div>
         <br>
-        <button class="btn btn-primary" type="submit">Submit form</button>
-        </form>
+        <%= user_form.submit "Submit", class: 'btn btn-primary' %>
+        <% end %>
     </div>
 </div>

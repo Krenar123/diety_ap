@@ -1,8 +1,16 @@
+<style>
+   @media only screen and (max-width: 800px) {
+        #homepageimage {
+            display:none;
+        }
+    }
+</style>
 <div class="image__part bg-light">
     <div class="h-100 container-fluid">
-        <h1> Enterprise-grade </h1>
-        <h1> Full stack development </h1>
-        <h4> We build solutions for startups, enterprises, and SMEs that help them succeed at the speed of light. </h5>
+        <h2 > Enterprise-grade </h2>
+        <h1 style="font-weight: bold;"> Full stack development </h1>
+        <%= image_tag 'homepageimage.png', id: "homepageimage", style: "position: absolute;right: 10px;margin-top: -110px;"%>
+        <h4 style="color: #6da8db;"> We build solutions for startups, enterprises, and SMEs that help them succeed at the speed of light. </h5>
     </div>
 </div>
 <div class="container-fluid">
@@ -13,9 +21,9 @@
             <br> 
             <p class="text-center" style="opacity:0.7;"> Our service </p>
             <br> 
-            <h1 class="text-center">Full stack development</h1> 
+            <h2 class="text-center" style="font-weight: bold;">Full stack development</h2> 
             <br>
-            <h6 class="text-center"> We create quality software products that benefit businesses of any size.
+            <h6 class="text-center" style="color: #6da8db;"> We create quality software products that benefit businesses of any size.
             We go beyond technology solution to understand your vision and deliver intuitive, custom-made,
             and customer-centric web and mobile app solutions. </h6>
         </div>
@@ -101,9 +109,9 @@
                 <br> 
                 <br> 
                 <p class="text-center" style="opacity:0.7;"> Our vision </p>
-                <h1 class="text-center">Industries We Serve</h1> 
+                <h2 class="text-center" style="font-weight: bold;">Industries We Serve</h2> 
                 <br>
-                <h6 class="text-center"> You can hardly find a sector where technology hasn’t entered yet.
+                <h6 class="text-center" style="color: #6da8db;"> You can hardly find a sector where technology hasn’t entered yet.
                 No matter what your business model is, we work together to deliver the best experience possible using the latest technologies and tools. We constantly learn and update 
                 ourselves with the latest tools and modern mindsets to build web and mobile apps for every domain. </h6>
             </div>
@@ -122,7 +130,7 @@
                 <br> 
                 <br> 
                 <p class="text-center" style="opacity:0.7;"> Our work </p>
-                <h1 class="text-center">Client Satisfaction is Our Motto</h1> 
+                <h2 class="text-center" style="font-weight: bold;">Client Satisfaction is Our Motto</h2> 
                 <br>
                 <div class="d-flex justify-content-center flex-wrap">
                     <div class="card m-1 shadow mb-5 bg-white rounded" style="max-width: 25rem;">
@@ -147,6 +155,7 @@
         </div>
         <div class="col-1"></div>
     </div>
+    <!-- 
     <div class="row bg-light">
         <div class="col-1"></div>
         <div class="col-10">
@@ -159,11 +168,6 @@
                     <div class="card m-1" style="max-width: 10rem; border-radius:50%;">
                         <div class="card-body d-flex align-items-center">
                             <%= image_tag 'rubyOn.png', width: '100%', height: '100%' %>
-                        </div>
-                    </div>
-                    <div class="card m-1" style="max-width: 10rem; border-radius:50%;">
-                        <div class="card-body d-flex align-items-center">
-                            <%= image_tag 'Java.png', width: '100%', height: '100%' %>
                         </div>
                     </div>
                     <div class="card m-1" style="max-width: 10rem; border-radius:50%;">
@@ -188,4 +192,5 @@
         </div>
         <div class="col-1"></div>
     </div>
+    -->
 </div>
